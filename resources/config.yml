@@ -1,0 +1,13 @@
+#                           |------------------------------------------------------------|
+#                           |        Plugin created by WHiTeG0Dz_ and for support        |
+#                           | Contact me on telegram @GodzHard or Discord WHiTeG0Dz_#2791|
+#                           |------------------------------------------------------------|
+
+#The title would be the initial part of the UI
+Title: §cRulesUI
+#The description is the part below the UI
+Description: §aCustom plugin created by GodzHard
+#The first button is to close the UI
+Button: Close
+
+#For my second plugin "JoinUI" click on the link! https://poggit.pmmp.io/ci/GodzHardYT/JoinUI/JoinUI

@@ -8,22 +8,13 @@ use pocketmine\command\CommandSender;
 use pocketmine\event\Listener;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
-use pocketmine\utils\Config;
 
 class Main extends PluginBase implements Listener {
-
-    public $myConfig;
 
     public function onEnable() {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->getLogger()->info("§cPlugin enabled!");
-        $this->myConfig = (new Config($this->getDataFolder() . "config.yml", Config::YAML, array(
-            "UI" => [
-                "Title" => "§cRulesUI",
-                "Description" => "§aInsert your rules!",
-                "Button" => "Close",
-            ],
-        )));
+        $this->saveDefaultConfig();
     }
 
     public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool {
@@ -37,11 +28,10 @@ class Main extends PluginBase implements Listener {
     }
 
     public function openMyForm($player) {
+    	$title = $this->getConfig()->get("Title");
+    	$description = $this->getConfig()->get("Description");
+    	$button = $this->getConfig()->get("Button");
         $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
-        $config = $this->myConfig->getAll();
-        $title = $config["UI"] ["Title"];
-        $description = $config["UI"] ["Description"];
-        $button = $config["UI"] ["Button"];
         $form = $api->createSimpleForm(function (Player $player, int $data = null) {
             $result = $data;
             if ($result === null) {
