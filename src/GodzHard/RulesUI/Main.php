@@ -8,6 +8,7 @@ use pocketmine\command\CommandSender;
 use pocketmine\event\Listener;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
+use pocketmine\utils\config;
 
 class Main extends PluginBase implements Listener {
 
@@ -27,6 +28,11 @@ class Main extends PluginBase implements Listener {
         return true;
     }
 
+    public function Config(){
+     $config = new Config($this->getDataFolder()."Config.yml", Config::YAML);
+       return $config;
+     }
+ 
     public function openMyForm($player) {
     	$title = $this->getConfig()->get("Title");
     	$description = $this->getConfig()->get("Description");
