@@ -1,8 +1,8 @@
 name: RulesUI
 main: GodzHard\RulesUI\Main
-api: 3.11.1
-version: 1.0
-author: GodzHard
+api: 3.9.0
+version: 2.0
+author: GodzHard\Fix DragonfireHD98
 commands:
   rulesui:
     description: open a RulesUI
